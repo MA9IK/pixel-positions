@@ -13,14 +13,11 @@ class Job extends Model
     /** @use HasFactory<\Database\Factories\JobFactory> */
     use HasFactory;
 
+    protected $fillable = ['title'];
+
     public function employer(): BelongsTo
     {
         return $this->belongsTo(Employer::class);
-    }
-
-    public function jobs(): HasMany
-    {
-        return $this->hasMany(Job::class);
     }
 
     public function tag(string $name): void
